@@ -1,22 +1,6 @@
 import './style.scss';
 
-const tasks = [
-  {
-    description: 'three',
-    completed: false,
-    index: 2,
-  },
-  {
-    description: 'two',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'one',
-    completed: false,
-    index: 0,
-  },
-];
+export const tasks = [];
 
 const viewTasks = () => {
   const container = document.querySelector('.to-do-list');
@@ -32,3 +16,11 @@ const viewTasks = () => {
   });
 };
 window.addEventListener('load', viewTasks);
+
+// Adding new element
+import addNewTask from './modules/addNewTask';
+tasks.push(addNewTask(description, tasks.length));
+
+// Removing an item from the list
+import removeTask from './modules/removeTask';
+removeTask(index);

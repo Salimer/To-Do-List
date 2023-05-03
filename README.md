@@ -4,7 +4,7 @@
   <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
   <br/>
 
-  <h1><b>Welcome to our project 😃</b></h1>
+  <h1><b>Welcome to my project 😃</b></h1>
 
 </div>
 
@@ -12,7 +12,7 @@
 <div align="center">
   
   <br/>
-<h1 align="center">Awesome Books</h1>
+<h1 align="center">To-Do List</h1>
 </div>
 
 
@@ -43,10 +43,10 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Awesome Books] <a name="about-project"></a>
+# 📖 [To-Do List] <a name="about-project"></a>
 
 
-**Awesome Books** is a project to showcase books arrangement using javascript 
+**To-Do List** is a project to showcase daily tasks arrangement with the help of webpack.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -68,10 +68,6 @@
 ### Key Features <a name="key-features"></a>
 
 
-- **Landing Page for activities**
-- **Mobile first development**
-- **Responsiveness and flexibility for any screen size**
-- **Fast access to social media and other ways of contact**
 - **Easy to the eyes and cultivating at the same time**
 - **Dynamic creation of content** 
 
@@ -101,15 +97,14 @@ Example commands:
 
 ```sh
   cd my-folder
-  git clone https://github.com/Salimer/Awesome-books.git
-  cd Portfolio
+  git clone https://github.com/Salimer/To-Do-List.git
 ```
 
 using Ubuntu:
 
 ```sh
   cd my-desired-folder
-  git clone https://github.com/Salimer/Awesome-books.git
+  git clone https://github.com/Salimer/To-Do-List.git
 ```
 
 For more information on how to clone or fork a repository:
@@ -127,7 +122,7 @@ To run the project, open with **index.html** with any web browser.
 For example, for Google Chrome with Ubuntu:
 
 ```sh
-  cd Awesome-books
+  cd To-Do-List
   google-chrome index.html
 ```
 
@@ -152,8 +147,6 @@ There are no test available for this project.
 
 - GitHub: [@Salimer](https://github.com/Salimer)
 
-👤 **Shakespear Samu**
-- GitHub: [@shakespear95](https://github.com/)
 
 
 
@@ -165,8 +158,8 @@ There are no test available for this project.
 
 
 Future changes:
-- improve slider responsiveness
-- Add more webpages such as Tickets Page and Schedule Page.
+- improve task box responsiveness
+- Add more styles and colors
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

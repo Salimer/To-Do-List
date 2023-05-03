@@ -1,18 +1,34 @@
 import _ from 'lodash';
 import './style.scss';
 
- function component() {
-   const element = document.createElement('div');
-  const btn = document.createElement('button');
-  
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+const tasks = [
+  {
+    description: "three",
+    completed: false,
+    index: 2,
+  },
+  {
+    description: "two",
+    completed: false,
+    index: 1,
+  },
+  {
+    description: "one",
+    completed: false,
+    index: 0,
+  }
+];
 
-  btn.innerHTML = 'Click me and check the console!';
+const viewTasks = () => {
+  const container = document.querySelector('.to-do-list');
+   
+  // Sort tasks array based on index property
+  tasks.sort((a, b) => a.index - b.index);
 
-  element.appendChild(btn);
-
-   return element;
- }
-
- document.body.appendChild(component());
+  tasks.forEach((task) => {
+    const listItem = document.createElement('li');
+    listItem.innerHTML = `${task.description}`;
+    container.appendChild(listItem);
+  })
+}
+window.addEventListener("load", viewTasks);

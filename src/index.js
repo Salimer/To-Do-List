@@ -1,4 +1,6 @@
 import './style.scss';
+import trash from './trash.svg';
+export { trash };
 
 const tasks = [];
 
@@ -23,7 +25,7 @@ import editTask from './modules/editTask';
 document.addEventListener('click', (event) => {
 
   // Remove case
-  const deleteIcons = document.querySelectorAll('.delete-icon');
+  const deleteIcons = document.querySelectorAll('.delete-img');
   deleteIcons.forEach((icon, index) => {
     if (event.target === icon) {
       removeTask(tasks, index);

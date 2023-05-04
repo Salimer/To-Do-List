@@ -1,32 +1,6 @@
 import './style.scss';
 
-const tasks = [
-  {
-    description: "one",
-    completed: false,
-    index: 0,
-},
-{
-  description: "2",
-  completed: false,
-  index: 1,
-},
-{
-  description: "3",
-  completed: false,
-  index: 2,
-},
-{
-  description: "4",
-  completed: false,
-  index: 3,
-},
-{
-  description: "taskDescription",
-  completed: false,
-  index: 4,
-},
-];
+const tasks = [];
 
 import viewTasks from './modules/viewTasks';
 window.addEventListener('load', viewTasks(tasks));
@@ -37,8 +11,6 @@ const input = document.querySelector('.input');
 input.addEventListener('keypress', (event) => {
   if (event.key === 'Enter' && input.value !== "") {
     const description = input.value;
-    console.log(tasks);
-    console.log(tasks.length);
     tasks.push(addNewTask(description, tasks.length));
     viewTasks(tasks);
     input.value = '';
@@ -47,6 +19,7 @@ input.addEventListener('keypress', (event) => {
 
 // Removing an item from the list
 import removeTask from './modules/removeTask';
+import editTask from './modules/editTask';
 document.addEventListener('click', (event) => {
 
   // Remove case
@@ -62,29 +35,26 @@ document.addEventListener('click', (event) => {
   const descriptions = document.querySelectorAll('.description');
   descriptions.forEach((task, index) => {
     if (event.target === task) {
-      console.log(tasks[index].description);
+      const parentLi = event.target.parentNode;
+      parentLi.classList.add('edit-bg');
       const oldTask = tasks[index].description;
       const inputField = document.createElement('input');
       inputField.type = 'text';
-      inputField.className = "description";
+      inputField.className = "description edit-bg";
       inputField.value = oldTask;
       task.innerHTML = '';
       task.appendChild(inputField);
+      inputField.focus();
 
       inputField.addEventListener('blur', () => {
         const newTask = inputField.value;
         task.removeChild(inputField);
         task.innerText = newTask;
-
-        const taskIndex = Array.from(taskList.children).indexOf(taskElement);
-        // Replace this with code to update your task data structure with the new text
-        console.log(`Updated task ${taskIndex} to "${newText}"`);
+        editTask(tasks, index, newTask);
+        viewTasks(tasks);
+        // Show the update in task in console
+        console.log(`Updated task ${oldTask} to "${newTask}"`);
       })
     }
   })
 })
-
-
-// Edit task
-import editTask from './modules/editTask';
-editTask(tasks, index, newDescription);

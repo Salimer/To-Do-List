@@ -51,20 +51,14 @@ document.addEventListener('click', (event) => {
       });
     }
   });
+
+  const checkBoxes = document.querySelectorAll('.check-box');
+  checkBoxes.forEach((checkBox, index) => {
+    checkBox.addEventListener('change', () => {
+      taskStatusUpdate(tasks, index);
+      viewTasks(tasks);
+    });
+  });
+
 });
 
-const checkBoxContainer = document.querySelector('.to-do-list');
-const checkBoxes = document.querySelectorAll('.check-box');
-checkBoxContainer.addEventListener('change', (event) => {
-  if (event.target.type === 'checkbox') {
-    checkBoxes.forEach((checkBox, index) => {
-      if (event.target === checkBox) {
-        console.log(index);
-        taskStatusUpdate(tasks, index);
-        console.log(tasks);
-      }
-    })
-    
-    
-  }
-})

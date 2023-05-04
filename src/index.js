@@ -1,26 +1,58 @@
 import './style.scss';
 
-export const tasks = [];
+const tasks = [
+  {
+    description: "taskDescription oeshjfgslkfglsdfjg;lsk j",
+    completed: false,
+    index: 0,
+},
+{
+  description: "taskDescription",
+  completed: false,
+  index: 1,
+},
+{
+  description: "taskDescription",
+  completed: false,
+  index: 1,
+},
+{
+  description: "taskDescription",
+  completed: false,
+  index: 1,
+},
+{
+  description: "taskDescription",
+  completed: false,
+  index: 1,
+},
+];
 
-const viewTasks = () => {
-  const container = document.querySelector('.to-do-list');
-
-  // Sort tasks array based on index property
-  tasks.sort((a, b) => a.index - b.index);
-
-  tasks.forEach((task) => {
-    const listItem = document.createElement('li');
-    listItem.className = 'list-item';
-    listItem.innerHTML = `<input class="check-box" type="checkbox">${task.description}`;
-    container.appendChild(listItem);
-  });
-};
-window.addEventListener('load', viewTasks);
+import viewTasks from './modules/viewTasks';
+window.addEventListener('load', viewTasks(tasks));
 
 // Adding new element
 import addNewTask from './modules/addNewTask';
-tasks.push(addNewTask(description, tasks.length));
+const input = document.querySelector('.input');
+input.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter' && input.value !== "") {
+    const description = input.value;
+    tasks.push(addNewTask(description, tasks.length));
+    viewTasks(tasks);
+    input.value = '';
+  }
+})
 
 // Removing an item from the list
 import removeTask from './modules/removeTask';
-removeTask(index);
+const deleteIcon = document.querySelectorAll('.delete-icon');
+deleteIcon.forEach((icon) => {
+  icon.addEventListener('click', (event) => {
+    removeTask(tasks, event);
+    viewTasks(tasks);
+  })
+})
+
+// Edit task
+import editTask from './modules/editTask';
+editTask(tasks, index, newDescription);

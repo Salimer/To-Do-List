@@ -37,11 +37,17 @@ li {
     .list-item {
       border-bottom: 1px solid #c8c8c8;
       padding: 1rem 1rem;
-    }
+      display: flex;
 
-    .check-box {
-      margin-right: 1rem;
+      .check-box {
+        margin-right: 1rem;
+      }
+
+      .delete-icon {
+        justify-self: flex-end;
+      }
     }
+    
   }
 
   .clear {

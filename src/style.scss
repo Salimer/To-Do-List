@@ -38,6 +38,7 @@ li {
       border-bottom: 1px solid #c8c8c8;
       padding: 1rem 1rem;
       display: flex;
+      align-items: center;
 
       .check-box {
         margin-right: 1rem;
@@ -45,6 +46,11 @@ li {
 
       .delete-icon {
         justify-self: flex-end;
+      }
+
+      .description {
+        width: 100%;
+        border: 0;
       }
     }
     

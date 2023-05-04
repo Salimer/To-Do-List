@@ -1,3 +1,3 @@
 export default (tasks, index, newDescription) => {
-    tasks[index].description = newDescription;
-}
+  tasks[index].description = newDescription;
+};

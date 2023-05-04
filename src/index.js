@@ -2,7 +2,7 @@ import './style.scss';
 import trash from './trash.svg';
 export { trash };
 
-const tasks = [];
+const tasks = JSON.parse(localStorage.getItem('toDoList')) || [];
 
 import viewTasks from './modules/viewTasks';
 window.addEventListener('load', viewTasks(tasks));

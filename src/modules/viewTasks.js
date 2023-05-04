@@ -18,4 +18,6 @@ export default (tasks) => {
       `;   
       container.appendChild(listItem);
     });
+
+    localStorage.setItem('toDoList', JSON.stringify(tasks));
   };

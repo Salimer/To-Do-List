@@ -3,6 +3,7 @@ import viewTasks from './modules/viewTasks.js';
 import addNewTask from './modules/addNewTask.js';
 import removeTask from './modules/removeTask.js';
 import editTask from './modules/editTask.js';
+import taskStatusUpdate from './modules/taskStatusUpdate.js';
 
 const tasks = JSON.parse(localStorage.getItem('toDoList')) || [];
 window.addEventListener('load', viewTasks(tasks));
@@ -15,6 +16,7 @@ input.addEventListener('keypress', (event) => {
     input.value = '';
   }
 });
+
 document.addEventListener('click', (event) => {
   // Remove case
   const deleteIcons = document.querySelectorAll('.delete-img');
@@ -50,3 +52,19 @@ document.addEventListener('click', (event) => {
     }
   });
 });
+
+const checkBoxContainer = document.querySelector('.to-do-list');
+const checkBoxes = document.querySelectorAll('.check-box');
+checkBoxContainer.addEventListener('change', (event) => {
+  if (event.target.type === 'checkbox') {
+    checkBoxes.forEach((checkBox, index) => {
+      if (event.target === checkBox) {
+        console.log(index);
+        taskStatusUpdate(tasks, index);
+        console.log(tasks);
+      }
+    })
+    
+    
+  }
+})

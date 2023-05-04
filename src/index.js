@@ -19,7 +19,6 @@ input.addEventListener('keypress', (event) => {
 });
 
 document.addEventListener('click', (event) => {
-  
   // Remove task
   const deleteIcons = document.querySelectorAll('.delete-img');
   deleteIcons.forEach((icon, index) => {
@@ -54,7 +53,7 @@ document.addEventListener('click', (event) => {
     }
   });
 
-  // Checkbox status 
+  // Checkbox status
   const checkBoxes = document.querySelectorAll('.check-box');
   checkBoxes.forEach((checkBox, index) => {
     checkBox.addEventListener('change', () => {
@@ -70,4 +69,3 @@ document.addEventListener('click', (event) => {
     viewTasks(tasks);
   }
 });
-

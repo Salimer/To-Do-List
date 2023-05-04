@@ -19,7 +19,7 @@ export default (tasks) => {
     input.setAttribute('checked', true);
     listItem.appendChild(input);
     listItem.innerHTML = `
-      <input class="check-box" type="checkbox" ${task.completed ? "checked" : "unchecked"}>
+      <input class="check-box" type="checkbox" ${task.completed ? 'checked' : 'unchecked'}>
       <p class="description">${task.description}</p>
       <a class="delete-icon"><img class="delete-img" src="${trash}" alt="trash"></a>
       `;

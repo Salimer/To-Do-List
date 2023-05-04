@@ -1,11 +1,8 @@
 import './style.scss';
-import trash from './trash.svg';
 import viewTasks from './modules/viewTasks.js';
 import addNewTask from './modules/addNewTask.js';
 import removeTask from './modules/removeTask.js';
 import editTask from './modules/editTask.js';
-
-export { trash };
 
 const tasks = JSON.parse(localStorage.getItem('toDoList')) || [];
 window.addEventListener('load', viewTasks(tasks));

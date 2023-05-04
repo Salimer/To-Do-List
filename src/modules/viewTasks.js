@@ -1,4 +1,4 @@
-import { trash } from '../index.js';
+import trash from '../trash.svg';
 
 export default (tasks) => {
   const container = document.querySelector('.to-do-list');
@@ -14,7 +14,7 @@ export default (tasks) => {
     listItem.className = 'list-item';
     listItem.innerHTML = `
       <input class="check-box" type="checkbox"><p class="description">${task.description}</p>
-      <a class="delete-icon" href="#"><img class="delete-img" src="${trash}" alt="trash"></a>
+      <a class="delete-icon"><img class="delete-img" src="${trash}" alt="trash"></a>
       `;
     container.appendChild(listItem);
   });

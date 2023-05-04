@@ -32,7 +32,7 @@ li {
       padding: 1rem;
       width: 100%;
       font-size: 1.5rem;
-        
+
       &:focus {
         outline: none;
       }
@@ -66,6 +66,7 @@ li {
 
         img {
           width: 1.5rem;
+          cursor: pointer;
         }
       }
 
@@ -79,7 +80,6 @@ li {
         }
       }
     }
-    
   }
 
   .clear {
@@ -90,5 +90,6 @@ li {
     text-decoration: none;
     color: #b7b7b7;
     text-align: center;
+    cursor: pointer;
   }
 }

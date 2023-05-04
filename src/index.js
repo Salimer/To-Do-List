@@ -4,8 +4,9 @@ import addNewTask from './modules/addNewTask.js';
 import removeTask from './modules/removeTask.js';
 import editTask from './modules/editTask.js';
 import taskStatusUpdate from './modules/taskStatusUpdate.js';
+import clearCompletedTasks from './modules/clearCompletedTasks.js';
 
-const tasks = JSON.parse(localStorage.getItem('toDoList')) || [];
+let tasks = JSON.parse(localStorage.getItem('toDoList')) || [];
 window.addEventListener('load', viewTasks(tasks));
 const input = document.querySelector('.input');
 input.addEventListener('keypress', (event) => {
@@ -18,7 +19,8 @@ input.addEventListener('keypress', (event) => {
 });
 
 document.addEventListener('click', (event) => {
-  // Remove case
+  
+  // Remove task
   const deleteIcons = document.querySelectorAll('.delete-img');
   deleteIcons.forEach((icon, index) => {
     if (event.target === icon) {
@@ -27,7 +29,7 @@ document.addEventListener('click', (event) => {
     }
   });
 
-  // Edit case
+  // Edit task
   const descriptions = document.querySelectorAll('.description');
   descriptions.forEach((task, index) => {
     if (event.target === task) {
@@ -52,6 +54,7 @@ document.addEventListener('click', (event) => {
     }
   });
 
+  // Checkbox status 
   const checkBoxes = document.querySelectorAll('.check-box');
   checkBoxes.forEach((checkBox, index) => {
     checkBox.addEventListener('change', () => {
@@ -60,5 +63,11 @@ document.addEventListener('click', (event) => {
     });
   });
 
+  // Clear completed tasks
+  const clearBtn = document.querySelector('.clear');
+  if (event.target === clearBtn) {
+    tasks = clearCompletedTasks(tasks);
+    viewTasks(tasks);
+  }
 });
 

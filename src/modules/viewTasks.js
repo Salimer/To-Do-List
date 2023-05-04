@@ -12,7 +12,8 @@ export default (tasks) => {
       const listItem = document.createElement('li');
       listItem.className = 'list-item';
       listItem.innerHTML = `
-      <input class="check-box" type="checkbox"><p class="description">${task.description}</p><a id="${task.index}" class="delete-icon" href="#">X</a>
+      <input class="check-box" type="checkbox"><p class="description">${task.description}</p>
+      <a class="delete-icon" href="#"><img src="./Assets/trash.svg"</a>
       `;   
       container.appendChild(listItem);
     });

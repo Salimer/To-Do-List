@@ -1,4 +1,4 @@
-const addTask = require('./modules/addNewTask');
+import addNewTask from './modules/addNewTask.js';
 
 describe('Add task function', () => {
     test('Adds the new task object to the tasks array', () => {
@@ -12,7 +12,8 @@ describe('Add task function', () => {
             index: tasksArray.length
         }
 
-        tasksArray.push(newObject);
-        expect(addTask(description, tasksArray)).toBe(tasksArray);
+        let newArray = [];
+        newArray.push(newObject);
+        expect(addNewTask(description, tasksArray)).toEqual(newArray);
     })
 })

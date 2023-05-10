@@ -12,8 +12,7 @@ const input = document.querySelector('.input');
 input.addEventListener('keypress', (event) => {
   if (event.key === 'Enter' && input.value !== '') {
     const description = input.value;
-    tasks.push(addNewTask(description, tasks.length));
-    viewTasks(tasks);
+    viewTasks(addNewTask(description, tasks));
     input.value = '';
   }
 });

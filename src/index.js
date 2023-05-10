@@ -9,11 +9,11 @@ import clearCompletedTasks from './modules/clearCompletedTasks.js';
 let tasks = JSON.parse(localStorage.getItem('toDoList')) || [];
 window.addEventListener('load', viewTasks(tasks));
 const input = document.querySelector('.input');
+// Add new task
 input.addEventListener('keypress', (event) => {
   if (event.key === 'Enter' && input.value !== '') {
     const description = input.value;
-    tasks.push(addNewTask(description, tasks.length));
-    viewTasks(tasks);
+    viewTasks(addNewTask(description, tasks));
     input.value = '';
   }
 });
@@ -23,8 +23,7 @@ document.addEventListener('click', (event) => {
   const deleteIcons = document.querySelectorAll('.delete-img');
   deleteIcons.forEach((icon, index) => {
     if (event.target === icon) {
-      removeTask(tasks, index);
-      viewTasks(tasks);
+      viewTasks(removeTask(tasks, index));
     }
   });
 

@@ -41,7 +41,7 @@ describe('Remove task function', () => {
         completed: false,
         index: 3,
       },
-    ]
+    ];
     const newArray = [
       {
         description: 'Task one',
@@ -58,7 +58,7 @@ describe('Remove task function', () => {
         completed: false,
         index: 2,
       },
-    ]
+    ];
     expect(removeTask(tasksArray, 1)).toEqual(newArray);
   });
 });

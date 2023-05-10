@@ -5,4 +5,6 @@ export default (tasks, index) => {
     tasks[i].index = i;
     i += 1;
   }
+
+  return tasks;
 };

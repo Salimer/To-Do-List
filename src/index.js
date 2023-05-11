@@ -37,8 +37,7 @@ document.addEventListener('click', (event) => {
       task.addEventListener('blur', () => {
         const newTask = task.textContent;
         task.textContent = newTask;
-        editTask(tasks, index, newTask);
-        viewTasks(tasks);
+        viewTasks(editTask(tasks, index, newTask));
       });
     }
   });

@@ -1,24 +1,29 @@
-import renderTasks from './modules/viewTasks';
-import trash from './trash.svg';
+/**
+ * @jest-environment jsdom
+ */
+import editTask from './modules/editTask.js';
 
-describe('renderTasks', () => {
-  it('should render a list of tasks', () => {
+describe('Edit task', () => {
     const tasks = [
-      { description: 'Task 1', completed: false, index: 0 },
-      { description: 'Task 2', completed: true, index: 1 },
-      { description: 'Task 3', completed: false, index: 2 },
-    ];
-    document.body.innerHTML = '<div class="to-do-list"></div>';
+        {
+            description: 'task1',
+            completed: false,
+            id: 0
+        }
+    ]
+    test('Edit task and update tasks array', () => {
+        document.body.innerHTML = `
+        <li class="list-item">
+            <input class="check-box" type="checkbox" unchecked="">
+            <p class="description" contenteditable="true">${tasks[0].description}</p>
+            <a class="delete-icon">
+                <img class="delete-img" src="http://127.0.0.1:3000/dist/940f2754b6cc078901bdf1f87308209e.svg" alt="trash">
+            </a>
+        </li>
+        `;
 
-    renderTasks(tasks);
+        // const description = document.
 
-    const listItemEls = document.querySelectorAll('.list-item');
-    expect(listItemEls.length).toBe(3);
-
-    tasks.forEach((task, index) => {
-      const listItemEl = listItemEls[index];
-      expect(listItemEl.querySelector('.description').textContent).toBe(task.description);
-      expect(listItemEl.querySelector('.check-box').checked).toBe(task.completed);
-    });
-  });
-});
+        
+    })
+})

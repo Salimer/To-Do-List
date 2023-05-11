@@ -61,12 +61,11 @@ li {
         margin-right: 1rem;
       }
 
-      .delete-icon {
-        justify-self: flex-end;
-
+      .delete-icon {       
         img {
           width: 1.5rem;
           cursor: pointer;
+          padding: 1rem;
         }
       }
 

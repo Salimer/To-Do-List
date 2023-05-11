@@ -26,9 +26,11 @@ describe('Edit task', () => {
         `;
 
     // pushing new tasks into the array
-    for (let i = 0; i < 8; i++) {
+    let i = 0;
+    while (i < 8) {
       const newTask = { description: `Task ${i}`, completed: i % 2 !== 0 };
       tasks.push(newTask);
+      i += 1;
     }
 
     const container = document.querySelector('.to-do-list');

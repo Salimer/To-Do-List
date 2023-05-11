@@ -1,4 +1,3 @@
-
 export default (container, task, trash) => {
     const listItem = document.createElement('li');
     listItem.className = 'list-item';

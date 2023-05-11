@@ -3,11 +3,11 @@
  */
 import editTask from './modules/editTask.js';
 import taskStatusUpdate from './modules/taskStatusUpdate.js';
-// import viewTasks from './modules/viewTasks.js';
-const viewTasks = require('./modules/viewTasks')
+import list from './modules/list.js';
+import clearCompletedTasks from './modules/clearCompletedTasks.js';
 
 describe('Edit task', () => {
-    const tasks = [];
+    let tasks = [];
     const newTask = {
         description: "New task",
         completed: false,
@@ -24,30 +24,29 @@ describe('Edit task', () => {
             </ul>
         <a class="clear">Clear all completed</a>
         `;
+
+        // pushing new tasks into the array
         for (let i = 0; i < 8; i++) {
             const newTask = { description: `Task ${i}`, completed: i % 2 !== 0 };
             tasks.push(newTask);
         }
         const container = document.querySelector('.to-do-list');
         tasks.forEach((task) => {
-            const listItem = document.createElement('li');
-            listItem.className = 'list-item';
-        
-            const input = document.createElement('input');
-            input.setAttribute('class', 'check-box');
-            input.setAttribute('type', 'checkbox');
-            input.setAttribute('checked', true);
-            listItem.appendChild(input);
-            listItem.innerHTML = `
-              <input class="check-box" type="checkbox" ${task.completed ? 'checked' : 'unchecked'}>
-              <p class="description" contenteditable="true">${task.description}</p>
-              <a class="delete-icon"><img class="delete-img" src="#" alt="trash"></a>
-              `;
-            container.appendChild(listItem);
+            list(container, task, '#');
+        });
+          
+        // Clearing the completed tasks
+        tasks = clearCompletedTasks(tasks);
+        while (container.children[2]) {
+            container.removeChild(container.children[2]);
+        }
+        tasks.forEach((task) => {
+            list(container, task, '#');
           });
-        const list = document.querySelectorAll('.description');
+        const taskItems = document.querySelectorAll('.description');
 
-        console.log(list.length);
+        // The test where there were 8 tasks, then deleted 4 completed tasks
+        expect(taskItems).toHaveLength(4);
     })
 
     test('Toggle completed status', () => {

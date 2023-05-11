@@ -33,18 +33,9 @@ document.addEventListener('click', (event) => {
     if (event.target === task) {
       const parentLi = event.target.parentNode;
       parentLi.classList.add('edit-bg');
-      // const oldTask = tasks[index].description;
-      // const inputField = document.createElement('input');
-      // inputField.type = 'text';
-      // inputField.className = 'description edit-bg';
-      // inputField.value = oldTask;
-      // task.innerHTML = '';
-      // task.appendChild(inputField);
-      // inputField.focus();
 
       task.addEventListener('blur', () => {
         const newTask = task.textContent;
-        // task.removeChild(inputField);
         task.textContent = newTask;
         editTask(tasks, index, newTask);
         viewTasks(tasks);
